@@ -83,7 +83,7 @@ f(ind, arr)
 }  
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
  //follow up instead of 1 or 2 jumps if it's k jumps
-  
+ //for memoization TC: O(N)*k 
 f(ind, arr)
 {
   if(ind==0) return 0;
@@ -92,6 +92,7 @@ f(ind, arr)
   
   for(j=1; j<=k; j++)
   {
+    if(ind>=0)
     int jmp = f(ind-j)+abs(arr[ind]-arr[ind-j]);
     min_steps = min(min_steps, jmp);
   }
