@@ -93,7 +93,7 @@ int ninja(vector<vector<int>>& points, int n)
 }
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//space optimization TC: O(N*4*3) SC: O(N*4)
+//space optimization TC: O(N*4*3) SC: O(4)
   
 int ninja(vector<vector<int>>& points, int n)
 {
