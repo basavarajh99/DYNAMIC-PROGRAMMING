@@ -81,3 +81,20 @@ f(ind, arr)
   //return dp[n-1];
   return prev;
 }  
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ //follow up instead of 1 or 2 jumps if it's k jumps
+  
+f(ind, arr)
+{
+  if(ind==0) return 0;
+  
+  min_steps = INT_MAX;
+  
+  for(j=1; j<=k; j++)
+  {
+    int jmp = f(ind-j)+abs(arr[ind]-arr[ind-j]);
+    min_steps = min(min_steps, jmp);
+  }
+  
+  return min_steps;
+}  
