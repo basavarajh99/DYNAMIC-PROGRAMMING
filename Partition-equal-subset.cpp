@@ -97,7 +97,7 @@ bool f(arr, k) //target=k
   prev(k+1, 0), cur(k+1, 0);
  
   //if(ind == 0) return arr[ind]==target;
-  prev[arr[0]] = true;
+  if(arr[0]<=k) prev[arr[0]] = true; //if n=1 and arr[0] = 10 then pre[arr[0]] will go out of bound as arr[0]>k
   
   for(int ind=1; ind<n; ind++)
   {
