@@ -109,3 +109,32 @@ int knapsack(vector<int>& wt, vector<int>& value, int n, int maxWeight)
   
   return prev[maxWeight];
 }
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Further Space Optimization with single row
+  
+//calling function
+int knapsack(vector<int>& wt, vector<int>& value, int n, int maxWeight)
+{
+  vector<int> prev(maxWeight+1, 0);
+//   if(ind == 0)
+//   {
+//     if(wt[0] <= W) return val[0];
+//     return 0;
+//   }
+  for(int W=wt[0]; W <= maxWeight; W++)
+    prev[W] = val[0];
+  
+  for(int ind = 1; ind < n; ind++)
+  {
+    for(int W =  maxWeight; W >= 0; W--)
+    {
+        int notTake = 0+prev[W];
+        int take = INT_MIN;
+        if(wt[ind] <= W)
+          take = val[ind] + prev[W-wt[ind]];
+        prev[W]=max(take, notTake);    
+    }
+  }
+  
+  return prev[maxWeight];
+}
