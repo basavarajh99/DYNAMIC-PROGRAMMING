@@ -62,7 +62,7 @@ bool f(arr, k) //target=k
   for(int i=0; i<n; i++)
     dp[i][0] = true;
   //if(ind == 0) return arr[ind]==target;
-  dp[0][arr[0]] = true;
+  if(arr[0]<=target) dp[0][arr[0]] = true;
   
   for(int ind=1; ind<n; ind++)
   {
