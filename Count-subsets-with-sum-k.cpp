@@ -2,8 +2,14 @@
 //recursion from n-1 to 0
 int f(ind, target, arr)
 {
-  if(target==0) return 1;
-  if(ind == 0) return arr[ind]==target;
+  if(target==0) return 1; //if there are 0's in the arr then remove this condition and change below condition as follow
+  if(ind == 0) return arr[ind]==target; // this should be changed as 
+//   if(ind == 0)
+//   {
+//     if(target == 0 and arr[0] == 0) return 2; //cuz take and not take case both will return same ans and both need to be counted
+//     if(sum == 0 or sum == arr[0]) return 1; //single array element case
+//     return 0;
+//   } change this in memoization, tabulation, space-optimization as well for all the problems related to this
   
   int take = 0;
   if(arr[ind]<=target)
