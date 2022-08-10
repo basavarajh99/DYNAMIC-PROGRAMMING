@@ -43,3 +43,40 @@ bool f(arr, k) //target=k
   
   return mini;
 }
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//space optimization
+bool f(arr, k) //target=k
+{
+  prev(k+1, 0), cur(k+1, 0);
+ 
+  //if(ind == 0) return arr[ind]==target;
+  if(arr[0]<=k) prev[arr[0]] = true;
+  
+  for(int ind=1; ind<n; ind++)
+  {
+    for(int target=1; target<=k; target++)
+    {
+      bool take = false;
+      if(arr[ind]<=target)
+      take = prev[target-arr[ind]];
+      int not_take = prev[target];
+
+      cur[target] = take | not_take;
+    }
+    prev=cur;
+  }
+  
+  //return prev[k];
+  //return dp[n-1][k];
+  //now dp[n-1][col=0 to totalsum] will have all the possible answers of the subsets and just get min of them
+  int mini = 1e9;
+  
+  for(int s1=0; s1<totalsum; s1++) 
+  {
+    if(prev[s1] == true) //true for only those whose subset sum can be formed with given array elements
+      mini = min(mini, abs((totalsum-s1) - s1)); //s1 = s1 and s2 = totalsum-s1
+  }
+  
+  return mini;
+}
+}
