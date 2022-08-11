@@ -110,7 +110,7 @@ int knapsack(int n, int maxW, vector<int>& val, vector<int>& wt)
   
   for(int ind = 1; ind < n; ind++)
   {
-    for(int W =  maxWeight; W >= 0; W--)
+    for(int W = 0; W <= maxW; W++)
     {
         int notTake = 0+prev[W];
         int take = 0;
