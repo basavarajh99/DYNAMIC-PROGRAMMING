@@ -21,7 +21,7 @@ ll f(int i, int j, int isTrue, string &exp, vector<vector<vector<ll>>> &dp) (0 t
   
   ll ways = 0;
   
-  for(int ind = i; ind <= j-1; ind++)
+  for(int ind = i; ind <= j-1; ind+=2)
   {
     ll LT = f(i, ind-1, 1, exp, dp); // left expression as true
     ll LF = f(i, ind-1, 0, exp, dp); // left expression as false
@@ -95,7 +95,7 @@ int evaluate(string &exp)
 
         ll ways = 0;
 
-        for(int ind = i; ind <= j-1; ind++)
+        for(int ind = i; ind <= j-1; ind+=2)
         {
           ll LT = dp[i][ind-1][1]; // left expression as true
           ll LF = dp[i][ind-1][0]; // left expression as false
