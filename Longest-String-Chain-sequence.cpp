@@ -30,7 +30,7 @@ static bool comp(string& s1, string& s2)
 int LIS(vector<int>& arr)
 {
   sort(arr.begin(), arr.end(), comp); //sorting according to length
-  vector<int> dp(n, 1); //hash array tells who is previous one
+  vector<int> dp(n, 1); 
   int maxi = 1;
   
   for(int ind = 0; ind < n; ind++)
