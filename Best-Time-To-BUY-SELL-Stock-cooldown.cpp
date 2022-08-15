@@ -4,7 +4,7 @@
 //recursion
 long f(int ind, int buy, long *val, int n)
 {
-  if(ind == n) return 0; //if all the days are exhausted and even if u  are holding stock then ur profit will be -ve since u have'nt sold it
+  if(ind >= n) return 0; //if all the days are exhausted and even if u  are holding stock then ur profit will be -ve since u have'nt sold it
   
   long profit = 0;
   if(buy)
@@ -27,7 +27,7 @@ long maxprofit(long *val, int n)
 //memoization
 long f(int ind, int buy, long *val, int n, vector<vector<int>>& dp)
 {
-  if(ind == n) return 0; //if all the days are exhausted and even if u  are holding stock then ur profit will be -ve since u have'nt sold it
+  if(ind >= n) return 0; //if all the days are exhausted and even if u  are holding stock then ur profit will be -ve since u have'nt sold it
   
   if(dp[ind][buy] != -1) return dp[ind][buy];
   
