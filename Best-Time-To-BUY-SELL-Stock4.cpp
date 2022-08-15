@@ -33,6 +33,7 @@ long maxprofit(long *val, int n, int k)
 //memoization
 long f(int ind, long *val, int n, vector<vector<int>>& dp, int transactions)
 {
+  //if we are given 2 transactions then we will do B-S and B-S, so 2*k
   if(ind == n or transactions == 2*k) return 0; //if all the days are exhausted and even if u  are holding stock then ur profit will be -ve since u have'nt sold it
   
   if(dp[ind][transactions] != -1) return dp[ind][transactions];
